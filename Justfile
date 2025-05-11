@@ -1,8 +1,8 @@
-export repo_organization := env("GITHUB_REPOSITORY_OWNER", "yourname")
-export image_name := env("IMAGE_NAME", "yourimage")
+export repo_organization := env("GITHUB_REPOSITORY_OWNER", "sdwilsh")
+export image_name := env("IMAGE_NAME", "sos")
 export centos_version := env("CENTOS_VERSION", "stream10")
 export fedora_version := env("CENTOS_VERSION", "41")
-export default_tag := env("DEFAULT_TAG", "latest")
+export default_tag := env("DEFAULT_TAG", "core")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
 alias build-vm := build-qcow2
@@ -45,7 +45,7 @@ clean:
     rm -f previous.manifest.json
     rm -f changelog.md
     rm -f output.env
-    rm -f output/
+    rm -rf output/
 
 # Sudo Clean Repo
 [group('Utility')]
@@ -286,7 +286,7 @@ _run-vm $target_image $tag $type $config:
     run_args+=(--env "GPU=Y")
     run_args+=(--device=/dev/kvm)
     run_args+=(--volume "${PWD}/${image_file}":"/boot.${type}")
-    run_args+=(docker.io/qemux/qemu-docker)
+    run_args+=(docker.io/qemux/qemu)
 
     # Run the VM and open the browser to connect
     (sleep 30 && xdg-open http://localhost:"$port") &
