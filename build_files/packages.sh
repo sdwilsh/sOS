@@ -11,3 +11,10 @@ dnf -y install \
     fish \
     starship \
     https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi-${CHEZMOI_VERSION}-$(arch).rpm
+
+# For dev-sec hardening of SSH
+dnf -y install \
+    checkpolicy \
+    openssh \
+    python3-dnf \
+    python3-policycoreutils
