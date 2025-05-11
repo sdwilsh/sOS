@@ -12,5 +12,5 @@ NoNewPrivileges=true
 ReadOnly=true
 SecurityLabelDisable=true
 Tmpfs=/tmp/alloy
-Volume=/etc/alloy/journal.alloy:/etc/alloy/journal.alloy:ro
+Volume=/usr/etc/alloy/journal.alloy:/etc/alloy/journal.alloy:ro
 Volume=/var/log/journal:/host/var/log/journal:ro
