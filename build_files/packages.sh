@@ -3,7 +3,6 @@
 set -ouex pipefail
 
 dnf -y copr enable atim/starship
-dnf -y copr enable sramanujam/atuin
 
 CHEZMOI_VERSION=2.62.3
 
