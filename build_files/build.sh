@@ -4,3 +4,5 @@ set -ouex pipefail
 
 ### Setup Alloy Container
 rsync -rvK /ctx/alloy/ /
+
+/ctx/cleanup.sh
