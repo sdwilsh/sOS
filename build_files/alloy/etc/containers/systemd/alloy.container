@@ -4,7 +4,9 @@ Description=A container to run Alloy to collect system logs and forward them to 
 [Container]
 DropCapability=ALL
 Exec=run /etc/alloy/ --storage.path=/tmp/alloy --server.http.listen-addr=localhost:8080 --server.http.ui-path-prefix=/ --stability.level=generally-available
-HealthCmd=CMD-SHELL curl http://localhost:8080/-/ready || exit 1
+# `curl` is not included in the image, so this workaround helps...sorta
+# https://github.com/grafana/alloy/issues/477
+HealthCmd=CMD-SHELL /bin/bash -c 'echo -e "GET /-/ready HTTP/1.1\nHost: localhost\nConnection: close\n\n"> /dev/tcp/localhost/8080' || exit 1
 HealthInterval=10s
 HealthStartPeriod=10s
 Image=docker.io/grafana/alloy:v1.8.2@sha256:8fad63014ac2d69dd5e21e51ec1639bb6f52b43402ff8ca96125ea874b7f6422
