@@ -1,5 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "datasourceTemplate": "docker",
+      "managerFilePatterns": [
+        "etc/containers/systemd/.*\\.container$"
+      ],
+      "matchStrings": [
+        "Image=(?<depName>.+?):(?<currentValue>.+?)(?:@sha256:(?<currentDigest>[0-9a-f]+?))?\\n"
+      ],
+      "versioningTemplate": "docker"
+    }
+  ],
   "extends": [
     "github>marinatedconcrete/config//renovate/marinatedconcrete#renovate-config-2.1.0",
     "github>marinatedconcrete/config//renovate/recommended#renovate-config-2.1.0"
