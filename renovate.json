@@ -5,7 +5,7 @@
       "customType": "regex",
       "datasourceTemplate": "docker",
       "managerFilePatterns": [
-        "etc/containers/systemd/.*\\.container$"
+        "/^.*\\/etc\\/containers\\/systemd\\/.*\\.container$/"
       ],
       "matchStrings": [
         "Image=(?<depName>.+?):(?<currentValue>.+?)(?:@sha256:(?<currentDigest>[0-9a-f]+?))?\\n"
