@@ -8,7 +8,7 @@
         "/^.*\\/etc\\/containers\\/systemd\\/.*\\.container$/"
       ],
       "matchStrings": [
-        "Image=(?<depName>.+?):(?<currentValue>.+?)(?:@sha256:(?<currentDigest>[0-9a-f]+?))?\\n"
+        "Image=(?<depName>.+?):(?<currentValue>.+?)(?:@(?<currentDigest>sha256:[0-9a-f]+?))?\\n"
       ],
       "versioningTemplate": "docker"
     }
