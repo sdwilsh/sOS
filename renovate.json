@@ -21,7 +21,13 @@
   "packageRules": [
     {
       "automerge": true,
-      "matchUpdateTypes": ["pin", "pinDigest"]
+      "matchUpdateTypes": [
+        "digest",
+        "minor",
+        "patch",
+        "pin",
+        "pinDigest"
+      ]
     }
   ]
 }
