@@ -2,5 +2,5 @@
 Description=Modifies the alloy container to include curl in order to perform a healthcheck.
 
 [Build]
-File=/etc/alloy/Containerfile
+File=/usr/etc/alloy/Containerfile
 ImageTag=localhost/alloy
