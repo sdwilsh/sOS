@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/ucore-minimal:stable@sha256:4b876b48a3d372415077101e70494463d823809b2204506dc00ca11790186261
+FROM ghcr.io/ublue-os/ucore-minimal:stable@sha256:740436b59e3ca36c25eda082be962e3d5ce02c11a85e5227b48b1555e8b4e0ba
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
